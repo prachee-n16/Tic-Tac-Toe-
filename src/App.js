@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 
 // Virtual board
-const board = ['', '', '', '', '', '', '', '', '']  
+var board = ['', '', '', '', '', '', '', '', '']  
 
 function App() {
   // Let true represent Player 1, false represent Player 2.
@@ -17,6 +17,22 @@ function App() {
   const [playerAWon, setPlayerAWin] = useState(false);
   const [playerBWon, setPlayerBWin] = useState(false);
   
+  function handleRestart() {
+    setCurrentPlayer(true);
+    setMoves(1);
+
+    setGameOver(false);
+    setPlayerAWin(false);
+    setPlayerBWin(false);
+
+    board = ['', '', '', '', '', '', '', '', '']  
+
+    for (let index = 0; index < 9; index++) {
+      document.getElementById("cell"+index).disabled = false;
+      document.getElementById("cell"+index).style.backgroundColor = "white";
+    }
+  }
+
   function handlePlayerMove(e) {
     // Player has made a move
     setMoves(moves+1);
@@ -145,8 +161,12 @@ function App() {
           }
         </p>
 
-        <button type="button" class="btn btn-primary mx-3 mt-3">Code</button>
-        <button type="button" class="btn btn-danger mx-3 mt-3">Restart</button>
+        <form method="get" action="https://github.com/prachee-n16/Tic-Tac-Toe-">
+          <button type="submit" class="btn btn-primary mx-3 mt-3">Code</button>
+          <button type="button" class="btn btn-danger mx-3 mt-3" onClick={handleRestart}>Restart</button>
+        </form>
+        
+        
 
     </div>
   );

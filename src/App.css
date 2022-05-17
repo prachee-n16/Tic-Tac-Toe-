@@ -1,0 +1,48 @@
+body { 
+  background-color: #282c34;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.cell {
+  height: 5rem;
+  width: 5rem;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px;
+  border: none;
+  color: black;
+}
+
+.x {
+  content:"+";
+}
+
+.o {
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.form-check-input[disabled]{
+  background-color: gray;
+}
